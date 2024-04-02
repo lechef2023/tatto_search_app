@@ -22,7 +22,21 @@ function HomeScreen({ navigation }) {
 function NotificationsScreen({ navigation }) {
   return (
     <ImageBackground
-      source={require('./images/fondo.jpg')}
+      source={require('./images/fondo_red.jpg')}
+      style={styles.background}
+      resizeMode="cover"
+    >
+      <View style={{ flex: 1, alignItems: 'center', justifyContent: 'center' }}>
+        <Button onPress={() => navigation.goBack()} title="Go back home" />
+      </View>
+    </ImageBackground>
+  );
+}
+
+function AnotherScreen({ navigation }) {
+  return (
+    <ImageBackground
+      source={require('./images/fondo_cian.jpg')}
       style={styles.background}
       resizeMode="cover"
     >
@@ -44,6 +58,7 @@ export default function App() {
       >
         <Drawer.Screen name="Home" component={HomeScreen} />
         <Drawer.Screen name="Notifications" component={NotificationsScreen} />
+        <Drawer.Screen name="AnotherScreen" component={AnotherScreen} />
       </Drawer.Navigator>
     </NavigationContainer>
   );
